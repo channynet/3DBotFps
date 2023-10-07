@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 dir = new Vector3(horizontal, 0, vertical).normalized;
-        Debug.Log(new Vector3(dir.x * transform.forward.x * speed * Time.deltaTime, 0, dir.z * transform.forward.z * speed * Time.deltaTime));
+        //Debug.Log(new Vector3(dir.x * transform.forward.x * speed * Time.deltaTime, 0, dir.z * transform.forward.z * speed * Time.deltaTime));
         transform.position += transform.forward * speed * Time.deltaTime * dir.z + transform.right * speed * Time.deltaTime * dir.x;
 
         Jump();
