@@ -573,6 +573,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1353765702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2112271662323278592, guid: 3941f36d0ddde9542b78f7f6c99170cc, type: 3}
+  m_PrefabInstance: {fileID: 1265830573436070786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1353765707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353765702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810d98036b85c4046baeece4192271e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  bulletSpawn: {fileID: 399768644}
+  Owner: {fileID: 0}
+  BulletTrail: {fileID: -6674318970868764350, guid: 1df285fc20e116d42806560638931b2d, type: 3}
+  ShootParticle: {fileID: 0}
+  ImpactParticle: {fileID: 0}
+  AddBulletSpread: 0
+  BulletSpreadVariance: {x: 0.1, y: 0.1, z: 0.1}
+  WeaponPosition: {fileID: 0}
+  player: {fileID: 1707150092}
+  autoFire: 1
+  CamsShake: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1001 &1434304973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,6 +680,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5717370821310611589, guid: 487edb6f5f0945b4b9b4f455fb9c8246, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 487edb6f5f0945b4b9b4f455fb9c8246, type: 3}
+--- !u!1 &1707150092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1696014694992928748, guid: 487edb6f5f0945b4b9b4f455fb9c8246, type: 3}
+  m_PrefabInstance: {fileID: 1434304973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1788801341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,5 +862,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: assault1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 73516109889770750, guid: 3941f36d0ddde9542b78f7f6c99170cc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3941f36d0ddde9542b78f7f6c99170cc, type: 3}

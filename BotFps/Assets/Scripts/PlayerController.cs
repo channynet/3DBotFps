@@ -40,11 +40,13 @@ public class PlayerController : MonoBehaviour
     {
         MouseLook();
         camera.transform.position = transform.position+ new Vector3 ( 0, eyeHeight, 0);
+        camReset();
     }
 
     private void FixedUpdate()
     {
         Move();
+
     }
 
     private void Move()
@@ -80,5 +82,15 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, RotationX, 0);
         camera.transform.rotation = Quaternion.Euler(RotationY, RotationX,0);
 
+    }
+
+
+    public void camShake(Vector3 CamShake)
+    {
+        camera.transform.eulerAngles += (CamShake);
+    }
+    void camReset()
+    {
+        camera.transform.eulerAngles = Vector3.zero;
     }
 }

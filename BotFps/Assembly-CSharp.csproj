@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Scripts\WeaponManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerWeaponManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

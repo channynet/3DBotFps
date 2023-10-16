@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public float camShake;
     public float damage;
     public Transform bulletSpawn;
     public GameObject Owner;
@@ -24,19 +23,15 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Fire();
-        }
+        
     }
     private void FixedUpdate()
     {
         transform.position = WeaponPosition.position;
         transform.rotation = WeaponPosition.rotation;
-
     }
 
-    void Fire()
+    public void Fire()
     {
         Vector3 direction = GetDirection();
         if(Physics.Raycast(bulletSpawn.position, direction, out RaycastHit hit, float.MaxValue))
@@ -66,10 +61,13 @@ public class WeaponManager : MonoBehaviour
         {
             Trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
             time += Time.deltaTime / Trail.time;
+            
             yield return null;
+            
         }
+        Debug.Log("asdf");
         Trail.transform.position = hit.point;
-        Instantiate(ImpactParticle, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(Trail.gameObject, Trail.time);
+        //Instantiate(ImpactParticle, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(Trail.gameObject);
     }
 }

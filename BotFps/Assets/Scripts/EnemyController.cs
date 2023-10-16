@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
                 if(Vector3.Distance(transform.position, enemies[i].gameObject.transform.position) != 0)
                 {
                     enemiesLengthMin = Vector3.Distance(transform.position, enemies[i].gameObject.transform.position);
-                    Debug.Log(enemiesLengthMin);
+                    //Debug.Log(enemiesLengthMin);
                     enemiesLengthMinIndex = i;
                 }
                 else
