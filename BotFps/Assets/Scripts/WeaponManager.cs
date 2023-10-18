@@ -13,7 +13,7 @@ public class WeaponManager : MonoBehaviour
     private float LastShootTime;
     public bool AddBulletSpread;
     public Vector3 BulletSpreadVariance;
-    public Transform WeaponPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,15 +27,17 @@ public class WeaponManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position = WeaponPosition.position;
-        transform.rotation = WeaponPosition.rotation;
+        
     }
 
     public void Fire()
     {
+        
         Vector3 direction = GetDirection();
+        Debug.DrawRay(bulletSpawn.position, direction,Color.cyan, float.MaxValue);
         if(Physics.Raycast(bulletSpawn.position, direction, out RaycastHit hit, float.MaxValue))
         {
+            Debug.Log("asdf");
             TrailRenderer trail = Instantiate(BulletTrail, bulletSpawn.position, Quaternion.identity);
 
             StartCoroutine(spawnTrail(trail,hit));
@@ -44,7 +46,7 @@ public class WeaponManager : MonoBehaviour
     }
     private Vector3 GetDirection()
     {
-        Vector3 direction = transform.forward;
+        Vector3 direction = Owner.transform.forward;
         if (AddBulletSpread)
         {
             direction += new Vector3(Random.Range(-BulletSpreadVariance.x, BulletSpreadVariance.x), Random.Range(-BulletSpreadVariance.y, BulletSpreadVariance.y), Random.Range(-BulletSpreadVariance.z, BulletSpreadVariance.z));

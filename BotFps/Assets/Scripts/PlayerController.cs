@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float MinRotationY;
     public Camera camera;
 
+    public Transform WeaponPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,10 +88,10 @@ public class PlayerController : MonoBehaviour
 
     public void camShake(Vector3 CamShake)
     {
-        camera.transform.eulerAngles += (CamShake);
+        camera.transform.eulerAngles += new Vector3 (Random.Range(-CamShake.x,CamShake.x), Random.Range(-CamShake.y, CamShake.y), Random.Range(-CamShake.z, CamShake.z));
     }
     void camReset()
     {
-        camera.transform.eulerAngles = Vector3.zero;
+        //camera.transform.eulerAngles = Vector3.zero;
     }
 }

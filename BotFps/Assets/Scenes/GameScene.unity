@@ -591,14 +591,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  bulletSpawn: {fileID: 399768644}
+  bulletSpawn: {fileID: 988234465}
   Owner: {fileID: 0}
   BulletTrail: {fileID: -6674318970868764350, guid: 1df285fc20e116d42806560638931b2d, type: 3}
   ShootParticle: {fileID: 0}
   ImpactParticle: {fileID: 0}
   AddBulletSpread: 0
   BulletSpreadVariance: {x: 0.1, y: 0.1, z: 0.1}
-  WeaponPosition: {fileID: 0}
   player: {fileID: 1707150092}
   autoFire: 1
   CamsShake: {x: 0.1, y: 0.1, z: 0.1}
@@ -677,6 +676,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 988234464}
+    - target: {fileID: 8519689494370272615, guid: 487edb6f5f0945b4b9b4f455fb9c8246, type: 3}
+      propertyPath: WeaponPosition
+      value: 
+      objectReference: {fileID: 399768644}
     m_RemovedComponents:
     - {fileID: 5717370821310611589, guid: 487edb6f5f0945b4b9b4f455fb9c8246, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 487edb6f5f0945b4b9b4f455fb9c8246, type: 3}
@@ -861,6 +864,10 @@ PrefabInstance:
     - target: {fileID: 2112271662323278592, guid: 3941f36d0ddde9542b78f7f6c99170cc, type: 3}
       propertyPath: m_Name
       value: assault1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406539167067746922, guid: 3941f36d0ddde9542b78f7f6c99170cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.66
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 73516109889770750, guid: 3941f36d0ddde9542b78f7f6c99170cc, type: 3}

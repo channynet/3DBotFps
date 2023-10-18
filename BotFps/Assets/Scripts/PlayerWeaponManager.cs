@@ -8,10 +8,13 @@ public class PlayerWeaponManager : WeaponManager
     private PlayerController playerController;
     public bool autoFire;
     public Vector3 CamsShake;
+    private Transform WeaponPosition;
     // Start is called before the first frame update
     void Start()
     {
         playerController = player.GetComponent<PlayerController>();
+        Owner = player;
+        WeaponPosition = playerController.WeaponPosition;
     }
 
     // Update is called once per frame
@@ -22,7 +25,7 @@ public class PlayerWeaponManager : WeaponManager
             if (Input.GetMouseButton(0))
             {
                 Fire();
-                playerController.camShake(CamsShake);
+                //playerController.camShake(CamsShake);
             }
         }
         else
@@ -30,9 +33,15 @@ public class PlayerWeaponManager : WeaponManager
             if (Input.GetMouseButtonDown(0))
             {
                 Fire();
-                playerController.camShake(CamsShake);
+                //playerController.camShake(CamsShake);
             }
         }
+        
     }
-    
+    private void FixedUpdate()
+    {
+        transform.position = WeaponPosition.position;
+        transform.rotation = WeaponPosition.rotation;
+    }
+
 }
