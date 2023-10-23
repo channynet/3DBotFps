@@ -13,7 +13,7 @@ public class WeaponManager : MonoBehaviour
     private float LastShootTime;
     public bool AddBulletSpread;
     public Vector3 BulletSpreadVariance;
-
+    public float NonHitBulletSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,25 +37,31 @@ public class WeaponManager : MonoBehaviour
         Debug.DrawRay(bulletSpawn.position, direction,Color.cyan, float.MaxValue);
         if(Physics.Raycast(bulletSpawn.position, direction, out RaycastHit hit, float.MaxValue))
         {
-            Debug.Log("asdf");
             TrailRenderer trail = Instantiate(BulletTrail, bulletSpawn.position, Quaternion.identity);
 
-            StartCoroutine(spawnTrail(trail,hit));
+            StartCoroutine(spawnTrailWithHit(trail,hit));
             LastShootTime = Time.time;
+        }
+        else
+        {
+            TrailRenderer trail = Instantiate(BulletTrail, bulletSpawn.position, Quaternion.identity);
+            StartCoroutine(spawnTrailWithoutHit(trail, direction));
+            
         }
     }
     private Vector3 GetDirection()
     {
-        Vector3 direction = Owner.transform.forward;
+        Vector3 direction = transform.forward;
         if (AddBulletSpread)
         {
             direction += new Vector3(Random.Range(-BulletSpreadVariance.x, BulletSpreadVariance.x), Random.Range(-BulletSpreadVariance.y, BulletSpreadVariance.y), Random.Range(-BulletSpreadVariance.z, BulletSpreadVariance.z));
-            direction.Normalize();
+            
         }
+        direction.Normalize();
         return direction;
     }
 
-    private IEnumerator spawnTrail(TrailRenderer Trail, RaycastHit hit)
+    private IEnumerator spawnTrailWithHit(TrailRenderer Trail, RaycastHit hit)
     {
         float time = 0;
         Vector3 startPosition = Trail.transform.position;
@@ -67,8 +73,21 @@ public class WeaponManager : MonoBehaviour
             yield return null;
             
         }
-        Debug.Log("asdf");
         Trail.transform.position = hit.point;
+        //Instantiate(ImpactParticle, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(Trail.gameObject);
+    }
+    private IEnumerator spawnTrailWithoutHit(TrailRenderer Trail, Vector3 dir)
+    {
+        float time = 0;
+        Vector3 startPosition = Trail.transform.position;
+        while (time < 2)
+        {
+            time += Time.deltaTime;
+            Trail.transform.position += dir * NonHitBulletSpeed  * Time.deltaTime;
+            yield return null;
+
+        }
         //Instantiate(ImpactParticle, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(Trail.gameObject);
     }
