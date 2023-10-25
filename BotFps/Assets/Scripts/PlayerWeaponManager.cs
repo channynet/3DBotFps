@@ -9,6 +9,7 @@ public class PlayerWeaponManager : WeaponManager
     public bool autoFire;
     public Vector3 CamsShake;
     private Transform WeaponPosition;
+    public Vector3 WeaponShakeness;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,8 @@ public class PlayerWeaponManager : WeaponManager
             if (Input.GetMouseButton(0))
             {
                 Fire();
-                //playerController.camShake(CamsShake);
+                playerController.camShake(CamsShake);
+                WeaponShake();
             }
         }
         else
@@ -33,7 +35,8 @@ public class PlayerWeaponManager : WeaponManager
             if (Input.GetMouseButtonDown(0))
             {
                 Fire();
-                //playerController.camShake(CamsShake);
+                playerController.camShake(CamsShake);
+                WeaponShake();
             }
         }
         
@@ -43,5 +46,8 @@ public class PlayerWeaponManager : WeaponManager
         transform.position = WeaponPosition.position;
         transform.rotation = WeaponPosition.rotation;
     }
-
+    private void WeaponShake()
+    {
+        transform.position += new Vector3(Random.Range(-WeaponShakeness.x, WeaponShakeness.x), Random.Range(-WeaponShakeness.y, WeaponShakeness.y), Random.Range(-WeaponShakeness.z, WeaponShakeness.z));
+    }
 }

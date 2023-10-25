@@ -91,4 +91,6 @@ public class WeaponManager : MonoBehaviour
         //Instantiate(ImpactParticle, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(Trail.gameObject);
     }
+
+    
 }

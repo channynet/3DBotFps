@@ -498,11 +498,12 @@ MonoBehaviour:
   ShootParticle: {fileID: 0}
   ImpactParticle: {fileID: 0}
   AddBulletSpread: 1
-  BulletSpreadVariance: {x: 0.1, y: 0.1, z: 0.1}
+  BulletSpreadVariance: {x: 0.04, y: 0.04, z: 0.04}
   NonHitBulletSpeed: 100
   player: {fileID: 1707150092}
   autoFire: 1
   CamsShake: {x: 0.1, y: 0.1, z: 0.1}
+  WeaponShakeness: {x: 0.03, y: 0.03, z: 0.03}
 --- !u!1001 &1434304973
 PrefabInstance:
   m_ObjectHideFlags: 0
